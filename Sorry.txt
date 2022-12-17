@@ -1,0 +1,74 @@
+import java.applet.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+
+public class RadioCheckButtons extends Applet implements ActionListener{
+    JRadioButton r1, r2, r3;
+    JLabel l1, l2,l3,l4;
+    ButtonGroup b;
+    JCheckBox c1, c2, c3;
+       
+    public void init() {
+        setLayout(new GridLayout(6, 3));
+        
+        r1=new JRadioButton("BCA");
+        r2=new JRadioButton("BBA");
+        r3=new JRadioButton("BCOM");
+        c1=new JCheckBox("C");
+        c2=new JCheckBox("Python");
+        c3=new JCheckBox("Java");
+        l1=new JLabel();
+        l2=new JLabel();
+        l3=new JLabel();
+        l4=new JLabel();
+        b=new ButtonGroup();
+       
+        
+        add(r1);
+        add(c1);
+        add(r2);
+        add(c2);
+        add(r3);
+        add(c3);
+        add(l1);
+        add(l2);
+        add(l3);
+        add(l4);
+        b.add(r1);
+        b.add(r2);
+        b.add(r3);
+
+        r1.addActionListener((this));
+        r2.addActionListener((this));
+        r3.addActionListener((this));
+        c1.addActionListener((this));
+        c2.addActionListener((this));
+        c3.addActionListener((this));
+        
+    }
+    public void actionPerformed(ActionEvent e) {
+        if(r1.isSelected())
+            l1.setText("BCA");
+        else if(r2.isSelected())
+            l1.setText("BBA");
+        else if(r3.isSelected())
+            l1.setText("BCOM");
+        else{
+            l1.setText("");
+        }
+        if(c1.isSelected())
+            l2.setText("C");
+        else
+            l2.setText("");
+        if(c2.isSelected())
+            l3.setText("Python");
+        else
+            l3.setText("");
+        if(c3.isSelected())
+            l4.setText("Java");
+        else
+            l4.setText("");
+    }
+
+}
